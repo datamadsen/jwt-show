@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title>jwt.show - show the payload of a jwt token</title>
+		<style>
+			input {
+				width: 100%;
+				font-size: xx-large;
+				font-family: monospace;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="encoded" placeholder="paste jwt" onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''"></input>
+		<pre id="decoded"></pre>
+	</body>
+	<script type="text/javascript">
+		window.onload = function() {
+			document.getElementById('encoded').focus();
+		}
+
+		function decode() {
+			setTimeout(function() {
+				try {
+					var encoded = document.getElementById('encoded').value;
+					var urlEncodedPayload = encoded.split('.')[1];
+					var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
+					var payload = JSON.parse(atob(base64Payload));
+					document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
+				}
+				catch (e) {
+					document.getElementById('decoded').textContent = "invalid jwt";
+				}
+			}, 0);
+		}
+	</script>
+</html>
