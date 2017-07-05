@@ -24,7 +24,8 @@
 					var encoded = document.getElementById('encoded').value;
 					var urlEncodedPayload = encoded.split('.')[1];
 					var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
-					var payload = JSON.parse(atob(base64Payload));
+					var payloadString = decodeURIComponent(escape(atob(base64Payload)));
+					var payload = JSON.parse(payloadString);
 					document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
 				}
 				catch (e) {
