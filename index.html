@@ -2,16 +2,19 @@
 	<head>
 		<title>jwt.show - show the payload of a jwt token</title>
 		<style>
+			body {
+				font-family: monospace;
+			}
 			input {
 				width: 100%;
 				font-size: xx-large;
-				font-family: monospace;
 			}
 		</style>
 	</head>
 	<body>
 		<input type="text" id="encoded" placeholder="paste jwt" onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''"></input>
 		<pre id="decoded"></pre>
+		<a href="https://github.com/tmadsen/jwt-show/blob/master/README.md">README.md</a>
 	</body>
 	<script type="text/javascript">
 		window.onload = function() {
