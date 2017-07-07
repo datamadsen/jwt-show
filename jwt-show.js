@@ -16,6 +16,9 @@ function decode() {
 			var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
 			var payloadString = decodeURIComponent(escape(atob(base64Payload)));
 			var payload = JSON.parse(payloadString);
+			if ("exp" in payload) {
+				countdown(payload.exp * 1000);
+			}
 			document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
 			document.getElementById('encoded').blur();
 		}
@@ -24,6 +27,42 @@ function decode() {
 		}
 	}, 0);
 }
+
+	function countdown(expirationDate) {
+		expirationDate = new Date(expirationDate).getTime();
+
+		if (window.countdownInterval)
+			clearInterval(window.countdownInterval);
+
+		window.countdownInterval = setInterval(function() {
+			var remaining = (expirationDate - new Date().getTime()) / 1000;
+			var minutes = parseInt(remaining / 60);
+			var seconds = parseInt(remaining % 60);
+
+			if (minutes <= 0) {
+				document.getElementById('expire-text-front').innerHTML = "expired";
+				document.getElementById('expire-text-rear').innerHTML = "ago (" + new Date(expirationDate) + ")";
+			} else {
+				document.getElementById('expire-text-front').innerHTML = "expires in";
+				document.getElementById('expire-text-rear').innerHTML = "(" + new Date(expirationDate) + ")";
+			}
+
+			if (Math.abs(minutes) <= 1 && Math.abs(minutes) > 0) {
+				document.getElementById('expire-minutes-text').innerHTML = "minute";
+			} else {
+				document.getElementById('expire-minutes-text').innerHTML = "minutes";
+			}
+
+			if (Math.abs(seconds) <= 1 && Math.abs(seconds) > 0) {
+				document.getElementById('expire-seconds-text').innerHTML = "second";
+			} else {
+				document.getElementById('expire-seconds-text').innerHTML = "seconds";
+			}
+
+			document.getElementById('expire-minutes').innerHTML = Math.abs(minutes);
+			document.getElementById('expire-seconds').innerHTML = Math.abs(seconds);
+		}, 500);
+	}
 
 function getParameterByName(name) {
 	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
