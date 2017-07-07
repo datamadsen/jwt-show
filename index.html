@@ -1,52 +1,14 @@
 <html>
 	<head>
 		<title>jwt.show - show the payload of a jwt token</title>
-		<style>
-			body {
-				font-family: monospace;
-			}
-			input {
-				width: 100%;
-				font-size: xx-large;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="jwt-show.css">
+		<script type="text/javascript" src="jwt-show.js"></script>
 	</head>
 	<body>
-		<input type="text" id="encoded" placeholder="paste jwt" onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''"></input>
+		<form action="">
+			<input type="text" id="encoded" placeholder="paste jwt" onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
+		</form>
 		<pre id="decoded"></pre>
 		<a href="https://github.com/tmadsen/jwt-show/blob/master/README.md">README.md</a>
 	</body>
-	<script type="text/javascript">
-		window.onload = function() {
-			document.getElementById('encoded').focus();
-			var querystringParameter = getParameterByName("jwt");
-			if (querystringParameter)
-			{
-				document.getElementById('encoded').value = querystringParameter;
-				document.getElementById('encoded').onchange();
-			}
-		}
-
-		function decode() {
-			setTimeout(function() {
-				try {
-					var encoded = document.getElementById('encoded').value;
-					var urlEncodedPayload = encoded.split('.')[1];
-					var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
-					var payloadString = decodeURIComponent(escape(atob(base64Payload)));
-					var payload = JSON.parse(payloadString);
-					document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
-					document.getElementById('encoded').blur();
-				}
-				catch (e) {
-					document.getElementById('decoded').textContent = "invalid jwt";
-				}
-			}, 0);
-		}
-
-		function getParameterByName(name) {
-			var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-			return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-		}
-	</script>
 </html>
