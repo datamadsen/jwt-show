@@ -12,6 +12,12 @@ function decode() {
 	setTimeout(function() {
 		try {
 			var encoded = document.getElementById('encoded').value;
+
+			if (encoded === "") {
+				document.getElementById('decoded').textContent = "";
+				return;
+			}
+
 			var urlEncodedPayload = encoded.split('.')[1];
 			var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
 			var payloadString = decodeURIComponent(escape(atob(base64Payload)));
