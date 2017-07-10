@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<form action="">
-			<input type="text" id="encoded" placeholder="paste jwt" onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
+			<input type="text" id="encoded" placeholder="paste jwt" onkeydown="decode() "onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
 		</form>
 		<pre id="decoded"></pre>
 		<span id="expire-text-front"></span>
