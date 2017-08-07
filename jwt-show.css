@@ -2,7 +2,27 @@ body {
 	font-family: monospace;
 }
 
+h1 {
+	margin-bottom: 0px;
+}
+
+a:visited {
+	color: blue;
+}
+
 input {
 	width: 100%;
 	font-size: xx-large;
+}
+
+#expiration.expired {
+	color:red;
+}
+
+#expiration.not-expired {
+	color:green;
+}
+
+#information {
+	max-width:80ch;
 }

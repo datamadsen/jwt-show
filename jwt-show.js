@@ -49,9 +49,11 @@ function countdown(expirationDate) {
 		var seconds = parseInt(remaining % 60);
 
 		if (minutes <= 0) {
+			document.getElementById('expiration').className = "expired";
 			document.getElementById('expire-text-front').innerHTML = "expired";
 			document.getElementById('expire-text-rear').innerHTML = "ago (" + new Date(expirationDate) + ")";
 		} else {
+			document.getElementById('expiration').className = "not-expired";
 			document.getElementById('expire-text-front').innerHTML = "expires in";
 			document.getElementById('expire-text-rear').innerHTML = "(" + new Date(expirationDate) + ")";
 		}
