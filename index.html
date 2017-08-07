@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>jwt.show - show the payload of a jwt token</title>
+		<title>jwt.show - decode jwt payload</title>
 		<link rel="stylesheet" type="text/css" href="jwt-show.css">
 		<script type="text/javascript" src="jwt-show.js"></script>
 	</head>
@@ -9,16 +9,57 @@
 			<input type="text" id="encoded" autocomplete="off" placeholder="paste jwt" onkeydown="decode() "onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
 		</form>
 		<pre id="decoded"></pre>
-		<span id="expire-text-front"></span>
-		<span id="expire-minutes"></span>
-		<span id="expire-minutes-text"></span>
-		<span id="expire-seconds"></span>
-		<span id="expire-seconds-text"></span>
-		<span id="expire-text-rear"></span>
-		<div>
-			<a href="https://github.com/tmadsen/jwt-show/blob/master/README.md">README.md</a>
-			|
-			<a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>
+		<div id="expiration">
+			<span id="expire-text-front"></span>
+			<span id="expire-minutes"></span>
+			<span id="expire-minutes-text"></span>
+			<span id="expire-seconds"></span>
+			<span id="expire-seconds-text"></span>
+			<span id="expire-text-rear"></span>
+		</div>
+		<div id="information">
+			<h1>About jwt.show</h1>
+			<p>This page is the most user-friendly json web token (jwt) decoder
+			around! All decoding is done client side so your info never touches a
+			server.</p>
+			<p>Paste a jwt in the input field and the payload will be decoded into
+			claim names and their values.</p>
+			<p>Some folks have asked: "Why not just use <a href="">jwt.io</a>?"
+			Because it's slow to load and annoying to use. That's just, like, my
+			opinion, man.</p>
+			<h2>Registered claim names</h2>
+			<p>RFC 7519 defines the following reserved claim names:</p>
+			<ul>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.1">iss</a> identifies who issued the jwt.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.2">sub</a> identifies the subject of the jwt.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">aud</a> identifies the intended audience of the jwt.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.4">exp</a> identifies the expiration time of the jwt.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.5">nbf</a> identifies the time from which the jwt is valid.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.6">iat</a> identifies the time that the jwt was issued at.
+				</li>
+				<li>
+					<a href="https://tools.ietf.org/html/rfc7519#section-4.1.7">jti</a> provides a unique identifier for the jwt.
+				</li>
+			</ul>
+			<p>It is up to the application to decide which registered claim names are
+			required. Read <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a>
+			to learn more about the jwt technology, it's short and to the point
+			&#8212; just like jwts.</p>
+			<a href="https://github.com/tmadsen/jwt-show/">fork on github</a>
+			and/or
+			<a
+			href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fjwt.show%20is%20the%20most%20user-friendly%20jwt%20decoder%20around!%20All%20decoding%20is%20done%20client%20side%20so%20your%20info%20never%20touches%20a%20server.">share on twitter</a>
 		</div>
 	</body>
 </html>
