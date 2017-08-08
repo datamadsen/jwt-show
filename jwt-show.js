@@ -51,27 +51,14 @@ function countdown(expirationDate) {
 		if (minutes <= 0) {
 			document.getElementById('expiration').className = "expired";
 			document.getElementById('expire-text-front').innerHTML = "expired";
-			document.getElementById('expire-text-rear').innerHTML = "ago (" + new Date(expirationDate) + ")";
+			document.getElementById('expire-text-rear').innerHTML = "ago on " + new Date(expirationDate);
 		} else {
 			document.getElementById('expiration').className = "not-expired";
 			document.getElementById('expire-text-front').innerHTML = "expires in";
-			document.getElementById('expire-text-rear').innerHTML = "(" + new Date(expirationDate) + ")";
+			document.getElementById('expire-text-rear').innerHTML = "on " + new Date(expirationDate);
 		}
 
-		if (Math.abs(minutes) <= 1 && Math.abs(minutes) > 0) {
-			document.getElementById('expire-minutes-text').innerHTML = "minute";
-		} else {
-			document.getElementById('expire-minutes-text').innerHTML = "minutes";
-		}
-
-		if (Math.abs(seconds) <= 1 && Math.abs(seconds) > 0) {
-			document.getElementById('expire-seconds-text').innerHTML = "second";
-		} else {
-			document.getElementById('expire-seconds-text').innerHTML = "seconds";
-		}
-
-		document.getElementById('expire-minutes').innerHTML = Math.abs(minutes);
-		document.getElementById('expire-seconds').innerHTML = Math.abs(seconds);
+		document.getElementById('expire-countdown').innerHTML = "" + Math.abs(minutes) + ":" + Math.abs(seconds) + "";
 	}, 500);
 }
 
@@ -81,10 +68,7 @@ function clearCountdown() {
 
 	document.getElementById('expire-text-front').innerHTML = "";
 	document.getElementById('expire-text-rear').innerHTML = "";
-	document.getElementById('expire-minutes').innerHTML = "";
-	document.getElementById('expire-minutes-text').innerHTML = "";
-	document.getElementById('expire-seconds').innerHTML = "";
-	document.getElementById('expire-seconds-text').innerHTML = "";
+	document.getElementById('expire-countdown').innerHTML = "";
 }
 
 function getParameterByName(name) {
