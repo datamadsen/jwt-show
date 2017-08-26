@@ -58,8 +58,26 @@ function countdown(expirationDate) {
 			document.getElementById('expire-text-rear').innerHTML = "on " + new Date(expirationDate);
 		}
 
-		document.getElementById('expire-countdown').innerHTML = "" + Math.abs(minutes) + ":" + Math.abs(seconds) + "";
+		document.getElementById('expire-countdown').innerHTML = makeCountdownString(minutes, seconds);
 	}, 500);
+}
+
+function makeCountdownString(minutes, seconds) {
+	var result = "";
+
+	if (Math.abs(minutes) < 10)
+		result += "0";
+
+	result += Math.abs(minutes);
+
+	result += ":";
+
+	if (Math.abs(seconds) < 10)
+		result += "0";
+
+	result += Math.abs(seconds);
+
+	return result;
 }
 
 function clearCountdown() {
