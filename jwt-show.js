@@ -6,7 +6,35 @@ window.onload = function() {
 		document.getElementById('encoded').value = querystringParameter;
 		document.getElementById('encoded').onchange();
 	}
+	darkmode();
 }
+
+function darkmode() {
+	for ( i=0; i<document.styleSheets.length; i++) {
+		var stylesheet = document.styleSheets.item(i);
+		if (stylesheet.href != undefined)
+		{
+			if (stylesheet.href.indexOf("light") > 0)
+			{
+				void(document.styleSheets.item(i).disabled=true);
+				// console.log(stylesheet.href);
+				// stylesheet.disabled = true;
+			}
+		}
+	}
+	fetch('https://ipinfo.io/json').then(function(response) {
+			return response.json();
+		}).then(function(json) {
+			var lat = Number.parseFloat(json.loc.split(',')[0]);
+			var lng = Number.parseFloat(json.loc.split(',')[1]);
+			var sunset = SunCalc.getTimes(new Date(), lat, lng).sunsetStart;
+			if (sunset >= new Date())
+			{
+				// Enable dark mode
+			}
+		});
+}
+
 
 function decode() {
 	setTimeout(function() {
@@ -29,6 +57,8 @@ function decode() {
 			}
 			document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
 			document.getElementById('encoded').blur();
+			if ("hljs" in window)
+				hljs.highlightBlock(document.getElementById('decoded'));
 		}
 		catch (e) {
 			document.getElementById('decoded').textContent = "invalid jwt";

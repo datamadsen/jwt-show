@@ -6,21 +6,58 @@ h1 {
 	margin-bottom: 0px;
 }
 
-a:visited {
+a, a:visited {
 	color: blue;
 }
 
-input {
+input[type=text] {
 	width: 100%;
 	font-size: xx-large;
+	font-family:monospace;
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
 }
 
-#expiration.expired {
-	color:red;
+input[type=text]:focus {
+	outline:none;
+	border-width: 2px;
 }
 
-#expiration.not-expired {
-	color:green;
+input[type="checkbox"] {
+	height: 1.2em;
+	width: 1.2em;
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	-webkit-appearance: none;
+	padding: 0;
+  margin:0;
+	margin-right: 4px;
+  vertical-align: bottom;
+  position: relative;
+  *overflow: hidden;
+}
+
+input[type="checkbox"]:not(:disabled):hover {
+    border-color:rgba(0,0,0,0.5);
+}
+
+input[type="checkbox"]:focus {
+	outline:none;
+}
+
+input[type="checkbox"]:checked {
+    border-color:rgba(0, 0, 0, 0.5)
+}
+
+input[type="checkbox"]:checked:before {
+	font-family: monospace;
+	content: 'X';
+	-webkit-margin-start: 0;
+	margin-left: 0.22em;
+}
+
+label:hover {
+	cursor:hand;
 }
 
 #information {
