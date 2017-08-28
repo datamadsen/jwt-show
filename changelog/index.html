@@ -1,0 +1,263 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jwt.show - changelog</title>
+		<meta name="description" content="Changelog of the most user-friendly json web token (jwt) decoder around! All decoding is done client side so your info never touches a server." />
+		<meta name="keywords" content="json web token,jwt,jwt decode,jwt show, jwt payload" />
+		<meta name="author" content="Tim M. Madsen" />
+		<link rel="stylesheet" type="text/css" href="changelog.css">
+		<script type="text/javascript" src="/script/vendor/jquery.min.js"></script>
+		<script type="text/javascript" src="/script/vendor/linkify.min.js"></script>
+		<script type="text/javascript" src="/script/vendor/linkify-jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("p").linkify();
+			});
+		</script>
+	</head>
+	<body>
+		<a href="/" style="text-decoration:underline;">jwt.show</a>/changelog <br /><br />
+		<h1>next up: link to it and generate on deploy</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/e798219701c1b952be0c336256d152d9850f0441">e798219</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<hr>
+
+<h1>Next up: Make it look nice</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/393debb4804a73a81ac0209cd4dcae6746b587a9">393debb</a> by Tim M. Madsen on August 28 2017</span> </p>
+
+<hr>
+
+<h1>Stop scorching retinas after midnight</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/79981f003dec84d436b617f2931a3a2743f143c4">79981f0</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>An unfortunate oversigt disabled automatic darkmode after midnight
+because by then, the sun hasn't set yet. Now we check if the time is
+before sunrise to avoid that.
+<hr></p>
+
+<h1>Use <code>fetch</code> polyfill so IE users stop whining</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/9d3ad124b34eb63ca097c73385a3e07225f67f98">9d3ad12</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>This patch introduces a <code>fetch</code> polyfill from github:
+https://github.com/github/fetch [1]. This will make one user in
+particular very happy because otherwise IE would break when preferring
+darkmode and the setting wouldn't be stored.</p>
+
+<p>Now go make an issue on SubtitleEdit [2]</p>
+
+<hr>
+
+<h1>Remove a bunch of unused code</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/98dbe57bb3574eacfd03dfd3b2924d438ff944b8">98dbe57</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>From a time where darkmode (tm) was still in development.
+<hr></p>
+
+<h1>Use <code>DOMContentLoaded</code> instead of <code>window.onload</code></h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/763ad4af8fead06883aa24dc728a5a81b1788d8f">763ad4a</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>When overwriting <code>window.onload</code> function more than once the last
+overwrite wins :>
+<hr></p>
+
+<h1>Use class based way of changing color scheme</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/16398a9aca84b9738ffad62967bcbaaf1dc2ba7b">16398a9</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>Previously we disabled a stylesheet to enable darkmode. That required
+stylesheets to be included in a special order in <code>index.html</code>. Ugh.</p>
+
+<p>This patch gives <code>&lt;body&gt;</code> either a <code>light</code> or <code>dark</code> value for the class
+attribute instead. Removes the need for special inclusion order and
+makes the code to switch simpler. Yay \o/
+<hr></p>
+
+<h1>Add a bit of statistics</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/b6a8f605dc67becbf81865d0ab41d5227814806e">b6a8f60</a> by Tim M. Madsen on August 26 2017</span> </p>
+
+<p>My curiosity got the best of me and this patch adds this functionality:</p>
+
+<ul>
+<li>When jwt.show decodes a token it requests <code>/stats/decode.html</code>.</li>
+<li>When a user indicates darkmode preference a request is made to either
+<code>/stats/prefer-darkmode-true.html</code> or <code>/stats/prefer-darkmode-false.html</code>.</li>
+</ul>
+
+<p>This enables me - and you - to see how many decodes jwt.show and what
+people prefer, darkmode-wise. Have a look here: https://jwt.show/hygge.html
+<hr></p>
+
+<h1>Add highlighting and darkmode</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/228d4a39673958e0d2c66b563e2ec625e81c48bc">228d4a3</a> by Tim M. Madsen on August 26 2017</span> </p>
+
+<p>Due to popular demand the decoded jwt payload is now syntax highlighted
+with help from https://highlightjs.org.</p>
+
+<p>A new dark mode will kick in by sunset to be easier on the retinas out
+there. It works by getting the client's location through
+http://ipinfo.io/json, then the lat- and longitude is fed to <code>suncalc</code>
+(https://github.com/mourner/suncalc) to get the time for when the sunset
+begins at the client's location. If the sun has begun to set, the
+darkmode is activated.</p>
+
+<p>It's also possible to always use the darkmode by checking the "Prefer
+darkmode" box in the bottom of the screen. The preference is saved in
+the browser's <code>localStorage</code>.</p>
+
+<p>Clear your caches ppl.
+<hr></p>
+
+<h1>Make time-remaining string prettier</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/2f301668b05f38fa4c357ecc97f8df1058936d68">2f30166</a> by Tim M. Madsen on August 26 2017</span> </p>
+
+<p>Previously, the expiration string could look like this "1:1" for one
+hour and one minute. How ugly is that? This patch makes it look like
+"01:01" instead. Killer.
+<hr></p>
+
+<h1>Add meta tags</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/551a8de9b7bbe65ddc868174f6723cad3a88403c">551a8de</a> by Tim M. Madsen on August 09 2017</span> </p>
+
+<hr>
+
+<h1>Make expiration info easier on the eyes</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/d6b61926105dec1fc129077d9290a9243fdbc81a">d6b6192</a> by Tim M. Madsen on August 08 2017</span> </p>
+
+<p>Make the information more glancable by removing text and parenthesis.
+<hr></p>
+
+<h1>Add more info about the site and jwt in general</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/93becae198bd8afc770b38bd96411de3ad0eaa06">93becae</a> by Tim M. Madsen on August 07 2017</span> </p>
+
+<p>Know more: decoding is done entirely client side and a list of
+registered claim names and their meaning is shown on the page.</p>
+
+<p>Read less: green text for not-yet expired tokens and red text for
+expired tokens.</p>
+
+<p>Easier on the eyes: visited links are now blue to add more uniformity to the way the
+page looks and the text is never wider than 80 characters.</p>
+
+<p>Threw a jab at jwt.io in there for good measure.
+<hr></p>
+
+<h1>Treat the empty string as a special case</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/2160e1495c64aa09da848f40c7f9b7f8cd2699a2">2160e14</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<hr>
+
+<h1>Add link to the jwt rfc</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/410c02b2dd74b5bfae7aeb1006b74de9b3c81ae6">410c02b</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<hr>
+
+<h1>Turn off autocomplete</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/5c786de891a0baece81fb913d1d0802adf09c4ea">5c786de</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<hr>
+
+<h1>Listen on keydown</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/27f6d891d1b606be4eebbc277d4a1a889575c277">27f6d89</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<hr>
+
+<h1>Add favicon</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/2e33095f70c242be2dcb8b450c9f79d7d5e35d98">2e33095</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<hr>
+
+<h1>Clear countdown from previous jwt</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/2bdb014bdf7267eb5be9e25429cfdcf9bfa0b341">2bdb014</a> by Tim M. Madsen on July 10 2017</span> </p>
+
+<p>When pasting an invalid jwt or a jwt without "exp", we would still display the
+countdown from the previous jwt. This patch fixes that.
+<hr></p>
+
+<h1>Make deploy script include js and css files</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/5b6563fd1435a090a24bf244cafaed1a49684d45">5b6563f</a> by Tim M. Madsen on July 07 2017</span> </p>
+
+<hr>
+
+<h1>Add countdown to expiration</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/ba0ff728cec559f6a8c42833a69bd0f83b1d87c2">ba0ff72</a> by Tim M. Madsen on July 07 2017</span> </p>
+
+<p>This patch introduces a countdown to the time where the token expires
+(according to "exp" in the token, if it exists).
+<hr></p>
+
+<h1>Separate html, css, and js to their own files</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/81ac44e23caccaab39db92a5187405a33e3c4197">81ac44e</a> by Tim M. Madsen on July 07 2017</span> </p>
+
+<hr>
+
+<h1>Add deploy script</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/2bcb7f6478506d0f01a202c21de1993bab8c3ccd">2bcb7f6</a> by Tim M. Madsen on July 05 2017</span> </p>
+
+<p>Add a simple deploy script to make it a bit simpler to update the site.
+<hr></p>
+
+<h1>Add support for passing jwt in the query string</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/99615e1255952317502fc0753f17129864c54244">99615e1</a> by Tim M. Madsen on July 05 2017</span> </p>
+
+<p>With this patch we take a look in the url, if there's a query string
+parameter called <code>jwt</code>, we decode its value immediately, eliminating the
+need for pasting the token.
+<hr></p>
+
+<h1>Add README.md link</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/023c24f9e53cb9694d32e3dbd0aeb41a6291aa3d">023c24f</a> by Tim M. Madsen on July 05 2017</span> </p>
+
+<p>Add a link to the readme file on github so folks can file issues and
+generally have their curiosity satisfied.
+<hr></p>
+
+<h1>Merge pull request #6 from tmadsen/feature/utf8</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/7624d63846bccddde26b67b398f10ffd88610df8">7624d63</a> by Tim M. Madsen on July 05 2017</span> </p>
+
+<p>Properly decode utf-8 characters<hr></p>
+
+<h1>Properly decode utf-8 characters</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/fab424c6d13222e507b074ce777fdb8b4241254e">fab424c</a> by Tim M. Madsen on July 05 2017</span> </p>
+
+<p>This patch provides support for utf-8 characters in strings through a
+combination of <code>decodeUriComponent</code> and <code>escape</code>. The method is
+described <a href="http://ecmanaut.blogspot.dk/2006/07/encoding-decoding-utf8-in-javascript.html">here</a> and further detailed <a href="http://monsur.hossa.in/2012/07/20/utf-8-in-javascript.html">here</a>.</p>
+
+<hr>
+
+<h1>The simplest page for showing a jwt payload</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/09e55bad0c92ebd1b2a3cf73e85578ebc44855af">09e55ba</a> by Tim M. Madsen on July 04 2017</span> </p>
+
+<p>Paste a jwt into the input field and see the payload below it. All decoding is
+done client side.
+<hr></p>
+
+	</body>
+</html>
