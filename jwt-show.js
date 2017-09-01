@@ -6,35 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		document.getElementById('encoded').value = querystringParameter;
 		document.getElementById('encoded').onchange();
 	}
-	darkmode();
-}
-
-function darkmode() {
-	for ( i=0; i<document.styleSheets.length; i++) {
-		var stylesheet = document.styleSheets.item(i);
-		if (stylesheet.href != undefined)
-		{
-			if (stylesheet.href.indexOf("light") > 0)
-			{
-				void(document.styleSheets.item(i).disabled=true);
-				// console.log(stylesheet.href);
-				// stylesheet.disabled = true;
-			}
-		}
-	}
-	fetch('https://ipinfo.io/json').then(function(response) {
-			return response.json();
-		}).then(function(json) {
-			var lat = Number.parseFloat(json.loc.split(',')[0]);
-			var lng = Number.parseFloat(json.loc.split(',')[1]);
-			var sunset = SunCalc.getTimes(new Date(), lat, lng).sunsetStart;
-			if (sunset >= new Date())
-			{
-				// Enable dark mode
-			}
-		});
-}
-
+});
 
 function decode() {
 	setTimeout(function() {
