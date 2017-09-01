@@ -1,24 +1,24 @@
-body {
+body.dark {
 	background-color:#282c34;
 	color: #abb2bf;
 }
 
-a, a:visited {
+.dark a, .dark a:visited {
 	color: #56b6c2;
 }
 
-input[type=checkbox],
-input[type=text] {
+.dark input[type=checkbox],
+.dark input[type=text] {
 	background-color:#282c34;
 	border-color:#abb2bf !important;
 	color: #abb2bf;
 }
 
-#expiration.expired {
+.dark #expiration.expired {
 	color:#e06c75;
 }
 
-#expiration.not-expired {
+.dark #expiration.not-expired {
 	color:#98c379;
 }
 
@@ -42,7 +42,7 @@ hue-6-2: #e6c07b
 
 */
 
-.hljs {
+.dark .hljs {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -50,71 +50,71 @@ hue-6-2: #e6c07b
   background: #282c34;
 }
 
-.hljs-comment,
-.hljs-quote {
+.dark .hljs-comment,
+.dark .hljs-quote {
   color: #5c6370;
   font-style: italic;
 }
 
-.hljs-doctag,
-.hljs-keyword,
-.hljs-formula {
+.dark .hljs-doctag,
+.dark .hljs-keyword,
+.dark .hljs-formula {
   color: #c678dd;
 }
 
-.hljs-section,
-.hljs-name,
-.hljs-selector-tag,
-.hljs-deletion,
-.hljs-subst {
+.dark .hljs-section,
+.dark .hljs-name,
+.dark .hljs-selector-tag,
+.dark .hljs-deletion,
+.dark .hljs-subst {
   color: #e06c75;
 }
 
-.hljs-literal {
+.dark .hljs-literal {
   color: #56b6c2;
 }
 
-.hljs-string,
-.hljs-regexp,
-.hljs-addition,
-.hljs-attribute,
-.hljs-meta-string {
+.dark .hljs-string,
+.dark .hljs-regexp,
+.dark .hljs-addition,
+.dark .hljs-attribute,
+.dark .hljs-meta-string {
   color: #98c379;
 }
 
-.hljs-built_in,
-.hljs-class .hljs-title {
+.dark .hljs-built_in,
+.dark .hljs-class .hljs-title {
   color: #e6c07b;
 }
 
-.hljs-attr,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-type,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-number {
+.dark .hljs-attr,
+.dark .hljs-variable,
+.dark .hljs-template-variable,
+.dark .hljs-type,
+.dark .hljs-selector-class,
+.dark .hljs-selector-attr,
+.dark .hljs-selector-pseudo,
+.dark .hljs-number {
   color: #d19a66;
 }
 
-.hljs-symbol,
-.hljs-bullet,
-.hljs-link,
-.hljs-meta,
-.hljs-selector-id,
-.hljs-title {
+.dark .hljs-symbol,
+.dark .hljs-bullet,
+.dark .hljs-link,
+.dark .hljs-meta,
+.dark .hljs-selector-id,
+.dark .hljs-title {
   color: #61aeee;
 }
 
-.hljs-emphasis {
+.dark .hljs-emphasis {
   font-style: italic;
 }
 
-.hljs-strong {
+.dark .hljs-strong {
   font-weight: bold;
 }
 
-.hljs-link {
+.dark .hljs-link {
   text-decoration: underline;
 }

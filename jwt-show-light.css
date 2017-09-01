@@ -1,24 +1,24 @@
-body {
+body.light {
 	background-color: white;
 	color: #333333;
 }
 
-a, a:visited {
+.light a, .light a:visited {
 	color: blue;
 }
 
-input[type=checkbox],
-input[type=text] {
+.light input[type=checkbox],
+.light input[type=text] {
 	background-color: white;
 	color: #333333;
   border-color: #969896;
 }
 
-#expiration.expired {
+.light #expiration.expired {
 	color:#df5000;
 }
 
-#expiration.not-expired {
+.light #expiration.not-expired {
 	color:#63a35c;
 }
 
@@ -27,7 +27,7 @@ input[type=text] {
  * Author : Louis Barranqueiro - https://github.com/LouisBarranqueiro
  */
 
-.hljs {
+.light .hljs {
   display: block;
   background: white;
   padding: 0.5em;
@@ -35,61 +35,61 @@ input[type=text] {
   overflow-x: auto;
 }
 
-.hljs-comment,
-.hljs-meta {
+.light .hljs-comment,
+.light .hljs-meta {
   color: #969896;
 }
 
-.hljs-string,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-strong,
-.hljs-emphasis,
-.hljs-quote {
+.light .hljs-string,
+.light .hljs-variable,
+.light .hljs-template-variable,
+.light .hljs-strong,
+.light .hljs-emphasis,
+.light .hljs-quote {
   color: #df5000;
 }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-type {
+.light .hljs-keyword,
+.light .hljs-selector-tag,
+.light .hljs-type {
   color: #a71d5d;
 }
 
-.hljs-literal,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-attribute {
+.light .hljs-literal,
+.light .hljs-symbol,
+.light .hljs-bullet,
+.light .hljs-attribute {
   color: #0086b3;
 }
 
-.hljs-section,
-.hljs-name {
+.light .hljs-section,
+.light .hljs-name {
   color: #63a35c;
 }
 
-.hljs-tag {
+.light .hljs-tag {
   color: #333333;
 }
 
-.hljs-title,
-.hljs-attr,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-selector-attr,
-.hljs-selector-pseudo {
+.light .hljs-title,
+.light .hljs-attr,
+.light .hljs-selector-id,
+.light .hljs-selector-class,
+.light .hljs-selector-attr,
+.light .hljs-selector-pseudo {
   color: #795da3;
 }
 
-.hljs-addition {
+.light .hljs-addition {
   color: #55a532;
   background-color: #eaffea;
 }
 
-.hljs-deletion {
+.light .hljs-deletion {
   color: #bd2c00;
   background-color: #ffecec;
 }
 
-.hljs-link {
+.light .hljs-link {
   text-decoration: underline;
 }

@@ -41,13 +41,5 @@ function setDarkmodePreference() {
 }
 
 function toggleDarkmode(enable) {
-	for ( i=0; i<document.styleSheets.length; i++) {
-		var stylesheet = document.styleSheets.item(i);
-
-		if (stylesheet.href != undefined) {
-			if (stylesheet.href.indexOf("light") > 0) {
-				void(document.styleSheets.item(i).disabled=enable);
-			}
-		}
-	}
+	document.getElementsByTagName("body")[0].className = enable ? "dark" : "light";
 }
