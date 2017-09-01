@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	getLatLng();
 	toggle();
-	document.getElementById("prefer-darkmode").checked = doesPreferDarkmode();
+	if (document.getElementById("prefer-darkmode") != null) {
+		document.getElementById("prefer-darkmode").checked = doesPreferDarkmode();
+	}
 });
 
 function getLatLng() {

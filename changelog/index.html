@@ -6,9 +6,13 @@
 		<meta name="keywords" content="json web token,jwt,jwt decode,jwt show, jwt payload" />
 		<meta name="author" content="Tim M. Madsen" />
 		<link rel="stylesheet" type="text/css" href="/styles/changelog.css">
+		<link rel="stylesheet" type="text/css" href="/styles/jwt-show-dark.css">
+		<link rel="stylesheet" type="text/css" href="/styles/jwt-show-light.css">
 		<script type="text/javascript" src="/script/vendor/jquery.min.js"></script>
 		<script type="text/javascript" src="/script/vendor/linkify.min.js"></script>
 		<script type="text/javascript" src="/script/vendor/linkify-jquery.min.js"></script>
+		<script type="text/javascript" src="/script/vendor/suncalc.js"></script>
+		<script type="text/javascript" src="/script/jwt-show-darkmode.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				$("p").linkify();
@@ -17,9 +21,16 @@
 	</head>
 	<body>
 		<a href="/" style="text-decoration:underline;">jwt.show</a>/changelog <br /><br />
-		<h1>Add a changelog</h1>
+		<h1>Move around a bunch of files</h1>
 
-<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/c3a800110558829352822e560d0b6470d89a0625">c3a8001</a> by Tim M. Madsen on August 28 2017</span> </p>
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/e328c133b9f6a7fd6ddb35a6d236c473dccf1416">e328c13</a> by Tim M. Madsen on September 01 2017</span> </p>
+
+<p>Trying to establish a bit of order.
+<hr></p>
+
+<h1>Add a changelog</h1>
+
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/0b615b480a9e22debe680864850847b387db8923">0b615b4</a> by Tim M. Madsen on August 28 2017</span> </p>
 
 <p>This commit adds a script that will generate a changelog based on the
 commit history on each deploy. The output of the script is run through
@@ -37,7 +48,7 @@ links in commit messages (https://github.com/SoapBox/linkifyjs/).</p>
 
 <h1>Stop scorching retinas after midnight</h1>
 
-<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/79981f003dec84d436b617f2931a3a2743f143c4">79981f0</a> by Tim M. Madsen on September 01 2017</span> </p>
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/ac2baf46af5c14cf4009296091fd88b2a9298edd">ac2baf4</a> by Tim M. Madsen on September 01 2017</span> </p>
 
 <p>An unfortunate oversigt disabled automatic darkmode after midnight
 because by then, the sun hasn't set yet. Now we check if the time is
@@ -46,16 +57,16 @@ before sunrise to avoid that.
 
 <h1>Use <code>fetch</code> polyfill so IE users stop whining</h1>
 
-<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/9d3ad124b34eb63ca097c73385a3e07225f67f98">9d3ad12</a> by Tim M. Madsen on September 01 2017</span> </p>
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/66cf50111e3e910b4b88da6ea94a11ffac1e9ab3">66cf501</a> by Tim M. Madsen on September 01 2017</span> </p>
 
 <p>This patch introduces a <code>fetch</code> polyfill from github:
-https://github.com/github/fetch [1]. This will make one user in
+https://github.com/github/fetch. This will make one user in
 particular very happy because otherwise IE would break when preferring
 darkmode and the setting wouldn't be stored.</p>
 
-<p>Now go make an issue on SubtitleEdit [2]</p>
-
-<hr>
+<p>Now go make an issue on SubtitleEdit:
+https://github.com/SubtitleEdit/subtitleedit
+<hr></p>
 
 <h1>Remove a bunch of unused code</h1>
 
