@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 	document.getElementById('encoded').focus();
 	var querystringParameter = getParameterByName("jwt");
 	if (querystringParameter)

@@ -1,8 +1,8 @@
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 	getLatLng();
 	toggle();
 	document.getElementById("prefer-darkmode").checked = doesPreferDarkmode();
-}
+});
 
 function getLatLng() {
 	fetch('https://ipinfo.io/json')
