@@ -5,7 +5,7 @@
 		<meta name="description" content="Changelog of the most user-friendly json web token (jwt) decoder around! All decoding is done client side so your info never touches a server." />
 		<meta name="keywords" content="json web token,jwt,jwt decode,jwt show, jwt payload" />
 		<meta name="author" content="Tim M. Madsen" />
-		<link rel="stylesheet" type="text/css" href="changelog.css">
+		<link rel="stylesheet" type="text/css" href="/styles/changelog.css">
 		<script type="text/javascript" src="/script/vendor/jquery.min.js"></script>
 		<script type="text/javascript" src="/script/vendor/linkify.min.js"></script>
 		<script type="text/javascript" src="/script/vendor/linkify-jquery.min.js"></script>
@@ -17,17 +17,23 @@
 	</head>
 	<body>
 		<a href="/" style="text-decoration:underline;">jwt.show</a>/changelog <br /><br />
-		<h1>next up: link to it and generate on deploy</h1>
+		<h1>Add a changelog</h1>
 
-<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/e798219701c1b952be0c336256d152d9850f0441">e798219</a> by Tim M. Madsen on September 01 2017</span> </p>
+<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/c3a800110558829352822e560d0b6470d89a0625">c3a8001</a> by Tim M. Madsen on August 28 2017</span> </p>
 
-<hr>
+<p>This commit adds a script that will generate a changelog based on the
+commit history on each deploy. The output of the script is run through
+the markdown parser and the output of that is  used to replace a
+<code>{CHANGELOG}</code> placeholder in a <code>template.html</code> file.</p>
 
-<h1>Next up: Make it look nice</h1>
+<p>The html is styled with a markdown stylesheet heavily inspired (read
+copied, then modified) from https://github.com/mrcoles/markdown-css so
+it looks like markdown again. Lastly, all links are found and made into
+anchor tags with linkify because I don't want to write markdown-style
+links in commit messages (https://github.com/SoapBox/linkifyjs/).</p>
 
-<p><span class="byline"><a href="https://github.com/tmadsen/jwt-show/commit/393debb4804a73a81ac0209cd4dcae6746b587a9">393debb</a> by Tim M. Madsen on August 28 2017</span> </p>
-
-<hr>
+<p>Crazy stuff.
+<hr></p>
 
 <h1>Stop scorching retinas after midnight</h1>
 
