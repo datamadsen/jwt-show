@@ -25,7 +25,10 @@ function toggle() {
 		var lat = localStorage.getItem("lat");
 		var lng = localStorage.getItem("lng");
 		if (lat && lng) {
-			toggleDarkmode(SunCalc.getTimes(new Date(), lat, lng).sunsetStart <= new Date());
+			var now = new Date();
+			var sun = SunCalc.getTimes(now, lat, lng);
+			var timeForDarkmode = now >= sun.sunsetStart || now <= sun.sunrise;
+			toggleDarkmode(timeForDarkmode);
 		}
 	}
 }
