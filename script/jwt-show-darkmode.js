@@ -10,8 +10,8 @@ function getLatLng() {
 			return response.json();
 		})
 		.then(function(json) {
-			var lat = Number.parseFloat(json.loc.split(',')[0]);
-			var lng = Number.parseFloat(json.loc.split(',')[1]);
+			var lat = parseFloat(json.loc.split(',')[0]);
+			var lng = parseFloat(json.loc.split(',')[1]);
 			localStorage.setItem("lat", lat);
 			localStorage.setItem("lng", lng);
 			toggle();
