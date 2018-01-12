@@ -8,6 +8,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 });
 
+function base64Decode(str) {
+    return decodeURIComponent(Array.prototype.map.call(atob(str), function (c) {
+		return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+	}).join(''))
+}
+
 function decode() {
 	setTimeout(function() {
 		try {
@@ -20,7 +26,7 @@ function decode() {
 
 			var urlEncodedPayload = encoded.split('.')[1];
 			var base64Payload = urlEncodedPayload.replace('-', '+').replace('_', '/');
-			var payloadString = decodeURIComponent(escape(atob(base64Payload)));
+			var payloadString = base64Decode(base64Payload);
 			var payload = JSON.parse(payloadString);
 			if ("exp" in payload) {
 				countdown(payload.exp * 1000);
