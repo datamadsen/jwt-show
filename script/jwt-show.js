@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	{
 		document.getElementById('encoded').value = querystringParameter;
 		document.getElementById('encoded').onchange();
-	}
+    }
+    document.clipboard = new ClipboardJS('#copy-button');
 });
 
 function decode() {

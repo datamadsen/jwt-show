@@ -13,14 +13,14 @@
 		<script type="text/javascript" src="/script/vendor/fetch.js"></script>
 		<script type="text/javascript" src="/script/vendor/highlight.pack.js"></script>
 		<script type="text/javascript" src="/script/vendor/suncalc.js"></script>
+		<script type="text/javascript" src="/script/vendor/clipboard.min.js"></script>
 		<script type="text/javascript" src="/script/jwt-show-darkmode.js"></script>
 		<script type="text/javascript" src="/script/jwt-show-stats.js"></script>
 		<script type="text/javascript" src="/script/jwt-show.js"></script>
 	</head>
 	<body>
-		<form action="">
-			<input type="text" id="encoded" autocomplete="off" placeholder="paste jwt" onkeydown="decode() "onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
-		</form>
+        <input type="text" id="encoded" autocomplete="off" placeholder="paste jwt" onkeydown="decode() "onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
+        <button id="copy-button" data-clipboard-action="copy" data-clipboard-target="#encoded">Copy token to clipboard</button>
 		<pre id="decoded"></pre>
 		<div id="expiration">
 			<span id="expire-text-front"></span>
