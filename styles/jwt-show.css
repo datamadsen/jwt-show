@@ -19,6 +19,10 @@ input[type=text] {
 	border-width: 1px;
 }
 
+input[type=text].small {
+	font-size: small;
+}
+
 input[type=text]:focus {
 	outline:none;
 	border-width: 2px;
@@ -62,4 +66,8 @@ label:hover {
 
 #information {
 	max-width:80ch;
+}
+
+#encoded {
+	margin-bottom: 10px;
 }

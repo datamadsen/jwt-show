@@ -1,21 +1,28 @@
 document.addEventListener("DOMContentLoaded", function(event) { 
 	document.getElementById('encoded').focus();
-	var querystringParameter = getParameterByName("jwt");
-	if (querystringParameter)
+
+	// It is possible to append a hash and a jwt to jwt.show urls.
+	var hash = window.location.hash;
+	if (hash)
 	{
-		document.getElementById('encoded').value = querystringParameter;
+		hash = hash.slice(1); // remove the '#' character.
+		document.getElementById('encoded').value = hash;
 		document.getElementById('encoded').onchange();
-    }
-    document.clipboard = new ClipboardJS('#copy-button');
+	}
+
+	new ClipboardJS('#copy-jwt-button');
+	new ClipboardJS('#copy-sharelink-button');
 });
 
 function decode() {
 	setTimeout(function() {
 		try {
 			var encoded = document.getElementById('encoded').value;
+			var baseUrl = window.location.protocol + "//" + window.location.host;
 
 			if (encoded === "") {
 				document.getElementById('decoded').textContent = "";
+				document.getElementById('sharelink').value = baseUrl;
 				return;
 			}
 
@@ -30,13 +37,16 @@ function decode() {
 			}
 			document.getElementById('decoded').textContent = JSON.stringify(payload, null, 2);
 			document.getElementById('encoded').blur();
-			if ("hljs" in window)
+
+			if ("hljs" in window) {
 				hljs.highlightBlock(document.getElementById('decoded'));
+			}
 		}
 		catch (e) {
 			document.getElementById('decoded').textContent = "invalid jwt";
 			clearCountdown();
 		}
+		document.getElementById('sharelink').value = baseUrl + '#' + encoded;
 	}, 0);
 }
 
@@ -90,9 +100,4 @@ function clearCountdown() {
 	document.getElementById('expire-text-front').innerHTML = "";
 	document.getElementById('expire-text-rear').innerHTML = "";
 	document.getElementById('expire-countdown').innerHTML = "";
-}
-
-function getParameterByName(name) {
-	var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }

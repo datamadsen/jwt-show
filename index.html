@@ -20,7 +20,8 @@
 	</head>
 	<body>
         <input type="text" id="encoded" autocomplete="off" placeholder="paste jwt" onkeydown="decode() "onpaste="decode()" onchange="decode()" onclick="javascript: this.value=''">
-        <button id="copy-button" data-clipboard-action="copy" data-clipboard-target="#encoded">Copy token to clipboard</button>
+        <button id="copy-jwt-button" data-clipboard-action="copy" data-clipboard-target="#encoded">Copy token to clipboard</button>
+        <button id="copy-sharelink-button" data-clipboard-action="copy" data-clipboard-target="#sharelink">Copy share link to clipboard</button>
 		<pre id="decoded"></pre>
 		<div id="expiration">
 			<span id="expire-text-front"></span>
@@ -81,6 +82,7 @@
  			<label>
 				Prefer darkmode: <input onchange="setDarkmodePreference()" type="checkbox" id="prefer-darkmode" name="prefer-darkmode">
 			</label>
+			share link: <input type="text" id="sharelink" class="small" autocomplete="off" value="https://jwt.show" />
 		</div>
 	</body>
 </html>
