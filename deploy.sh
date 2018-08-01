@@ -1,7 +1,7 @@
-#!/bin/sh
-./generate-changelog.sh
-sudo -u www-data cp *.html /var/www/jwt.show
-sudo -u www-data cp -r styles /var/www/jwt.show
-sudo -u www-data cp -r changelog /var/www/jwt.show
-sudo -u www-data cp -r script /var/www/jwt.show
-sudo -u www-data cp -r stats /var/www/jwt.show
+#!/bin/bash
+yarn
+rm -rf dist
+./tools/generate-changelog-entries.sh > ./src/models/Changes.js
+yarn run build
+sudo -u www-data rm -rf /var/www/jwt.show/*
+sudo -u www-data cp dist/* /var/www/jwt.show
