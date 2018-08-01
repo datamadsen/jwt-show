@@ -1,0 +1,71 @@
+@import 'node_modules/tachyons/css/tachyons';
+
+body {
+  @extend .f7, .code;
+}
+
+button {
+  @extend .ph2, .bg-white, .outline-transparent, .pv1, .br-0, .ba;
+  cursor: pointer;
+
+  &:first-of-type {
+    @extend .br--left, .br2;
+  }
+
+  &:last-of-type {
+    @extend .br--right, .br2, .ba;
+  }
+}
+
+.light {
+  @import './node_modules/highlight.js/styles/github-gist';
+
+  button {
+    &:hover {
+      background-color: #f4f4f4;
+    }
+
+    &.active {
+      color: #e66f00;
+    }
+  }
+}
+.dark {
+  @import './node_modules/highlight.js/styles/atom-one-dark';
+  background-color: #282c34;
+  color: #abb2bf;
+
+  input,
+  button {
+    background-color: #282c34;
+    color: #abb2bf;
+  }
+  
+  button {
+    &.active {
+      color: #e2e2e2;
+    }
+    &:hover {
+      background-color: #555555;
+    }
+  }
+    
+  a {
+    color: #56b6c2;
+    text-decoration: none;
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.5s;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

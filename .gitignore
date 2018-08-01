@@ -1,2 +1,5 @@
-changelog/index.html
 .vscode
+package-lock.json
+node_modules/
+.cache
+dist
