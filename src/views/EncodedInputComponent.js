@@ -3,7 +3,7 @@ var JwtState = require('../models/JwtState');
 
 var EncodedInputComponent = {
   view: function () {
-    return m("input", { 
+    return m("input.code.ma2.w-100", { 
       type: "text",
       placeholder: "paste jwt",
       autofocus: true,
