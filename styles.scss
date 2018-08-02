@@ -1,0 +1,13 @@
+.light {
+  @import './node_modules/highlight.js/styles/github-gist';
+}
+.dark {
+  @import './node_modules/highlight.js/styles/atom-one-dark';
+  background-color:#282c34;
+	color: #abb2bf;
+  input[type=checkbox],
+  input[type=text] {
+    background-color:#282c34;
+    color: #abb2bf;
+  }
+}
