@@ -11,7 +11,7 @@ var EncodedInputComponent = {
       value: JwtState.encodedJwt,
       onclick: function () { JwtState.setEncodedJwt('') },
       oninput: m.withAttr("value", JwtState.setEncodedJwt),
-      onblur: m.withAttr("value", JwtState.restorePreviousEncodedJwt)
+      onblur: m.withAttr("value", JwtState.restorePreviousIfBlank)
     })
   }
 }
