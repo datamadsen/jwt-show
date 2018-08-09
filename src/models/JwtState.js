@@ -16,7 +16,7 @@ var JwtState = {
     if (!value) {
       JwtState.encodedJwt = JwtState.previousEncodedJwt;
     }
-  }
+  },
 }
 
 module.exports = JwtState;

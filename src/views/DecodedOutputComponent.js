@@ -4,7 +4,7 @@ var JwtState = require('../models/JwtState');
 
 /* The decoded jwt is a `pre` with highllighted json. */
 var DecodedOutputComponent = {
-  view: function (vnode) {
+  view: function () {
     var decoded = JwtState.decodedJwt();
     var highlighted = hljs.highlight('json', decoded);
     return m("pre", [
