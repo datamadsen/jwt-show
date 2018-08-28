@@ -1,5 +1,5 @@
-import SunCalc from "suncalc";
-import { GeoLocation } from "./GeoLocation";
+import SunCalc from "suncalc"
+import { GeoLocation } from "./GeoLocation"
 
 export let Darkmode = {
   darkmodeIsEnabled: null,
@@ -41,7 +41,7 @@ function preferAutomatic () {
 }
 
 function getDarkmodePreference () {
-  return localStorage.getItem("darkmode.darkmodePreference")
+  return localStorage.getItem("darkmode.darkmodePreference") || "auto"
 }
 
 function setDarkmodePreference (preference) {
