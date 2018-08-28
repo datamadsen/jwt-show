@@ -7,7 +7,7 @@ export const ExpirationComponent = {
     ExpirationComponent.intervalFunction = window.setInterval(m.redraw, 500)
   },
   view: function (vnode) {
-    const expiration = JwtState.decodedJwt().exp * 1000
+    const expiration = JwtState.decodedJwt === null ? 0 : JwtState.decodedJwt.exp * 1000
     if (!expiration) {
       return
     }

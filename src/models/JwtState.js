@@ -3,14 +3,12 @@ import { JwtDecoder } from './JwtDecoder'
 export let JwtState = {
   encodedJwt: "",
   previousEncodedJwt: "",
-
-  decodedJwt: function () {
-    return JwtDecoder.decode(JwtState.encodedJwt)
-  },
+  decodedJwt: null,
 
   setEncodedJwt: function (value) {
     JwtState.previousEncodedJwt = JwtState.encodedJwt
     JwtState.encodedJwt = value
+    JwtState.decodedJwt = JwtDecoder.decode(value)
   },
 
   restorePreviousIfBlank: function (value) {

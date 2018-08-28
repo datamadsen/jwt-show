@@ -4,10 +4,10 @@ import { JwtState } from "../models/JwtState.js"
 
 export const DecodedOutputComponent = {
   view: function () {
-    if (!JwtState.decodedJwt())
+    if (!JwtState.decodedJwt)
       return
 
-    var decoded = JSON.stringify(JwtState.decodedJwt(), null, 2)
+    var decoded = JSON.stringify(JwtState.decodedJwt, null, 2)
     var highlighted = hljs.highlight('json', decoded)
 
     return m("pre.f5", [
