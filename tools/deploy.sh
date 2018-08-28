@@ -1,4 +1,5 @@
 #!/bin/bash
+# Pahts are relative to "root", where we would normally run `yarn run deploy`.
 yarn
 rm -rf dist
 ./tools/generate-changelog-entries.sh > ./src/models/Changes.js

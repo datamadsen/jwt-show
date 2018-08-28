@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build index.html --no-source-maps",
-    "watch": "parcel watch index.html",
-    "browser": "node tools/serve.js"
+    "build": "parcel build src/index.html --no-source-maps",
+    "watch": "parcel watch src/index.html",
+    "browser": "node tools/serve.js",
+    "deploy": "bash tools/deploy.sh"
   },
   "dependencies": {
     "anchorify": "^1.0.2",
