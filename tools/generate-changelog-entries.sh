@@ -13,7 +13,7 @@ function git_pretty_format_for_hash {
 
 function format {
   abbreviated_commit=$(git_pretty_format_for_hash "%h" $1)
-  subject=$(git_pretty_format_for_hash "%s" $1)
+  subject=$(git_pretty_format_for_hash "%s" $1 | escape_quotes)
   body=$(git_pretty_format_for_hash "%b" $1 | escape_newlines | escape_quotes)
   authorName=$(git_pretty_format_for_hash "%cN" $1)
   authorEmail=$(git_pretty_format_for_hash "%cE" $1)
