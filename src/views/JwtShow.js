@@ -13,7 +13,7 @@ export const JwtShow = {
     return m(DarkmodeComponent, [
       m(EncodedInputComponent),
       m("div", [
-        m("div.dib", [
+        m("div.dib.mt2", [
           m(DarkmodePreferenceComponent),
         ]),
         m("div.dib.ml2", [

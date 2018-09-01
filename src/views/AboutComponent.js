@@ -15,10 +15,11 @@ export const AboutComponent = {
       m("p", "RFC 7519 defines the following reserved claim names:"),
       m("ul.pl3", [
         m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.1">iss</a> for issuer.`)),
-        m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.2">sub</a> for an id of the subject the token is issued to.`)),
+        // m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.2">sub</a> for an id of the subject the token is issued to.`)),
+        m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.2">sub</a> for a subject identifier.`)),
         m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.3">aud</a> for audience.`)),
         m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.4">exp</a> for expiration time.`)),
-        m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.5">nbf</a> for not before, ie. from when is the token valid.`)),
+        m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.5">nbf</a> for when the token is valid from.`)),
         m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.6">iat</a> for when the token was issued.`)),
         m("li", m.trust(`<a href="https://tools.ietf.org/html/rfc7519#section-4.1.7">jti</a> for a unique token id.`)),
       ]),
