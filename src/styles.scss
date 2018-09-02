@@ -21,8 +21,10 @@ button {
   @import './node_modules/highlight.js/styles/github-gist';
 
   button {
-    &:hover {
-      background-color: #f4f4f4;
+    @media (hover:hover) {
+      &:hover {
+        background-color: #f4f4f4;
+      }
     }
 
     &.active {
@@ -42,11 +44,13 @@ button {
   }
   
   button {
+    @media (hover:hover) {
+      &:hover {
+        background-color: #555555;
+      }
+    }
     &.active {
       color: #e2e2e2;
-    }
-    &:hover {
-      background-color: #555555;
     }
   }
     
