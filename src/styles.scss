@@ -21,6 +21,7 @@ button {
   @import './node_modules/highlight.js/styles/github-gist';
 
   button {
+    border-color: rgb(192, 192, 192);
     @media (hover:hover) {
       &:hover {
         background-color: #f4f4f4;
@@ -29,21 +30,25 @@ button {
 
     &.active {
       color: #e66f00;
+      border-color: rgb(192, 192, 192);
     }
   }
 }
 .dark {
   @import './node_modules/highlight.js/styles/atom-one-dark';
-  background-color: #282c34;
-  color: #abb2bf;
+  $dark-color: #abb2bf;
+  $dark-bgcolor: #282c34;
+  background-color: $dark-bgcolor;
+  color: $dark-color;
 
   input,
   button {
-    background-color: #282c34;
-    color: #abb2bf;
+    background-color: $dark-bgcolor;
+    color: $dark-color;
   }
   
   button {
+    border-color: $dark-color;
     @media (hover:hover) {
       &:hover {
         background-color: #555555;
@@ -51,6 +56,7 @@ button {
     }
     &.active {
       color: #e2e2e2;
+      border-color: $dark-color;
     }
   }
     
