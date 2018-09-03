@@ -13,6 +13,6 @@ export let JwtState = {
 
   restorePreviousIfBlank: function (value) {
     if (!value)
-      JwtState.encodedJwt = JwtState.previousEncodedJwt
+      JwtState.setEncodedJwt(JwtState.previousEncodedJwt)
   }
 }
