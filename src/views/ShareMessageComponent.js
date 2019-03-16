@@ -21,7 +21,7 @@ const messages = [
   "I don't always jwt. But when I do it's on jwt.show",
   "ey? J0! jwt.show",
   "I don't even see the base64. All I see is iss, aud, exp. jwt.show",
-  "You know what's slow and status quo? jwt.io --- jwt.show tho... whoa ;-)"
+  "Come with me if you want to jwt -- jwt.show"
 ]
 
 let messageIndex = 0
