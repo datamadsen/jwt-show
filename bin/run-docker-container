@@ -1,0 +1,8 @@
+#!/bin/bash
+docker run \
+    --detach \
+    -it \
+    --rm \
+    --name jwt.show \
+    --volume /var/log/nginx/jwt.show:/var/log/nginx \
+    datamadsen/jwt.show
