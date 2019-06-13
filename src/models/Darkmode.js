@@ -29,6 +29,11 @@ export let Darkmode = {
 
 function preferDarkmode () {
   return getDarkmodePreference() === "dark"
+        || osPrefersDarkmode() && !preferLightmode();
+}
+
+function osPrefersDarkmode() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
 function preferLightmode () {
