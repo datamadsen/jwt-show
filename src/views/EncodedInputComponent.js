@@ -13,7 +13,10 @@ export const EncodedInputComponent = {
       oninput: m.withAttr("value", JwtState.setEncodedJwt),
       onpaste: (event) => {
         JwtState.setEncodedJwt(event.target.value)
-        window.setTimeout(() => event.target.blur(), 0)
+        window.setTimeout(() => {
+            event.target.setSelectionRange(0, 0)
+            event.target.blur()
+        }, 0)
       },
       onblur: m.withAttr("value", JwtState.restorePreviousIfBlank)
     })

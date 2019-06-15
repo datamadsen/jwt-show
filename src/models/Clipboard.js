@@ -1,7 +1,6 @@
 export const Clipboard = {
   setClipboard: function (value) {
     // Create and add an input field.
-    console.log("creating element")
     var tempInput = document.createElement("input")
     // The 24pt font size is to prevent ios from automatically zooming in.
     tempInput.style.cssText = "position: absolute; font-size: 24pt; left: -1000px; top: -1000px"

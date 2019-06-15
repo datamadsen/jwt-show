@@ -27,11 +27,11 @@ function copyJwtLink () {
 var lastCopy = null
 function displayCopiedMessage (vnode) {
   const now = new Date().getTime()
-  if (lastCopy && now - lastCopy.getTime() < 10) {
+  if (lastCopy && now - lastCopy.getTime() < 2) {
     // show the message by making sure the fade-out class is not present
     // on the element and then add it again when the browser has removed
     // it in the first place.
     vnode.dom.classList.remove('fade-out')
-    window.setTimeout(() => vnode.dom.classList.add("fade-out"), 0)
+    window.setTimeout(() => vnode.dom.classList.add("fade-out"), 2)
   }
 }
