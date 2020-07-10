@@ -8,7 +8,17 @@ export let JwtState = {
   setEncodedJwt: function (value) {
     JwtState.previousEncodedJwt = JwtState.encodedJwt
     JwtState.encodedJwt = value
-    JwtState.decodedJwt = JwtDecoder.decode(value)
+
+    // If some json is pasted, and it contains an accessToken property
+    // then we use that property's value instead of the whole string.
+    try {
+      const json = JSON.parse(value);
+      if (json.accessToken) {
+        JwtState.encodedJwt = json.accessToken;
+      }
+    } catch (e) { }
+
+    JwtState.decodedJwt = JwtDecoder.decode(JwtState.encodedJwt)
   },
 
   restorePreviousIfBlank: function (value) {

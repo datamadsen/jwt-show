@@ -3,7 +3,7 @@ import { Clipboard } from "../models/Clipboard"
 import { JwtState } from "../models/JwtState"
 
 export const CopyJwtToClipboardComponent = {
-  view: function (vnode) {
+  view: function () {
     return m("div.mt2", [
       m("span", "copy: "),
       m("button", { onclick: copyJwt }, "jwt"),
@@ -14,7 +14,7 @@ export const CopyJwtToClipboardComponent = {
 }
 
 function copyJwt () {
-  Clipboard.setClipboard(JwtState.encodedJwt)
+  Clipboard.setClipboard(JwtState.encodedJwt);
   lastCopy = new Date()
 }
 

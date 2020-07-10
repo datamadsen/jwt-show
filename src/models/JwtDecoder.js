@@ -1,3 +1,5 @@
+import { JwtState } from './JwtState'
+
 export const JwtDecoder = {
   decode: function (jwt) {
     if (!jwt)
