@@ -17,7 +17,7 @@
     "linkifyjs": "^2.1.6",
     "markdown": "^0.5.0",
     "marked": "^0.5.0",
-    "mithril": "^1.1.6",
+    "mithril": "^1.1.7",
     "moment": "^2.22.2",
     "suncalc": "^1.8.0"
   },
