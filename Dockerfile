@@ -18,5 +18,5 @@ RUN yarn run build
 # production stage
 FROM nginx:stable as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY ./etc/nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./etc/nginx/conf.d /etc/nginx/conf.d
 EXPOSE 80
