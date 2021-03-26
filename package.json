@@ -1,7 +1,7 @@
 {
   "name": "jwt.show",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
     "build": "parcel build src/index.html --no-source-maps",
@@ -23,10 +23,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
-    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.13.10",
     "node-sass": "^4.13.1",
     "parcel": "^1.9.7",
+    "sass": "^1.32.8",
     "tachyons": "^4.10.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
   },
   "browserslist": [
     "last 2 versions",
