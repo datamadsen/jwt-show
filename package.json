@@ -24,9 +24,9 @@
   "devDependencies": {
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-transform-runtime": "^7.13.10",
-    "node-sass": "^4.13.1",
     "parcel": "^1.9.7",
-    "sass": "^1.32.8",
+    "sass": "^1.50.0",
+    "sass-loader": "^12.6.0",
     "tachyons": "^4.10.0"
   },
   "resolutions": {
