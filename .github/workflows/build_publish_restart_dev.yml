@@ -37,16 +37,7 @@ jobs:
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
           # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
-
-          # Use `latest-dev` tag if we're not pushing an image made from master.
-          [ "$VERSION" != "latest" ] && VERSION=latest-dev
-
-          # Use version number for Docker tags if the commit has a git tag.
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          VERSION=${{github.sha}}
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
@@ -54,20 +45,34 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-  restart_deployement:
-    name: Restart deployment
+  deploy_with_gitops:
+    name: Deploy with gitops
     needs: build_and_push_docker_image
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set kubeconfig
-        uses: Azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBE_CONFIG_DEV }}
+      - name: Setup kustomize
+        uses: imranismail/setup-kustomize@v1.6.1
 
-      - name: Restart jwt-show
-        id: restart-jwt-show
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          repository: datamadsen/gitops
+          path: gitops
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Update guid-store image with kustomize
+        working-directory: gitops/guid-store/dev
         run: |
-          kubectl rollout restart deployment jwt-show
+          kustomize edit set image datamadsen/guid-store=ghcr.io/datamadsen/guid.store/guid.store:${{ github.sha }}
+          cat kustomization.yaml
+
+      - name: Commit changes
+        working-directory: gitops/guid-store/dev
+        run: |
+          git config --global user.email "tim@datamadsen.dk"
+          git config --global user.name "guid.store"
+          git add .
+          git commit -m "[DEV] Update guid-store version"
+          git push
 
