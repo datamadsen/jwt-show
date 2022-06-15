@@ -10,7 +10,7 @@ on:
       - v*
 
 env:
-  IMAGE_NAME: jwt-show
+  IMAGE_NAME: jwt.show
 
 jobs:
   build_and_push_docker_image:
