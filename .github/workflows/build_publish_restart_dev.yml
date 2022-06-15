@@ -63,7 +63,7 @@ jobs:
       - name: Update jwt-show image with kustomize
         working-directory: gitops/jwt-show/dev
         run: |
-          kustomize edit set image datamadsen/jwt-show=ghcr.io/datamadsen/jwt-show/jwt-show:${{ github.sha }}
+          kustomize edit set image ghcr.io/datamadsen/jwt-show/jwt.show=ghcr.io/datamadsen/jwt-show/jwt.show:${{ github.sha }}
           cat kustomization.yaml
 
       - name: Commit changes
