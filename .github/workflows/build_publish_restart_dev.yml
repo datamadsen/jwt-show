@@ -10,7 +10,7 @@ on:
       - v*
 
 env:
-  IMAGE_NAME: jwt.show
+  IMAGE_NAME: jwt-show
 
 jobs:
   build_and_push_docker_image:
@@ -36,7 +36,6 @@ jobs:
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
-          # Strip git ref prefix from version
           VERSION=${{github.sha}}
 
           echo IMAGE_ID=$IMAGE_ID
@@ -61,18 +60,18 @@ jobs:
           path: gitops
           token: ${{ secrets.GH_PAT }}
 
-      - name: Update guid-store image with kustomize
-        working-directory: gitops/guid-store/dev
+      - name: Update jwt-show image with kustomize
+        working-directory: gitops/jwt-show/dev
         run: |
-          kustomize edit set image datamadsen/guid-store=ghcr.io/datamadsen/guid.store/guid.store:${{ github.sha }}
+          kustomize edit set image datamadsen/jwt-show=ghcr.io/datamadsen/jwt-show/jwt-show:${{ github.sha }}
           cat kustomization.yaml
 
       - name: Commit changes
-        working-directory: gitops/guid-store/dev
+        working-directory: gitops/jwt-show/dev
         run: |
           git config --global user.email "tim@datamadsen.dk"
-          git config --global user.name "guid.store"
+          git config --global user.name "jwt-show"
           git add .
-          git commit -m "[DEV] Update guid-store version"
+          git commit -m "[DEV] Update jwt-show version"
           git push
 
