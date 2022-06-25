@@ -44,8 +44,8 @@ jobs:
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
 
-  deploy_with_gitops:
-    name: Deploy with gitops
+  commit_to_gitops:
+    name: Commit to gitops
     needs: build_and_push_docker_image
     runs-on: ubuntu-latest
 
@@ -72,6 +72,6 @@ jobs:
           git config --global user.email "tim@datamadsen.dk"
           git config --global user.name "jwt-show"
           git add .
-          git commit -m "[DEV] Update jwt-show version"
+          git commit -m "#dev #jwt-show ${{ github.event.head_commit.message }}"
           git push
 
