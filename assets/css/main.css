@@ -1,0 +1,23 @@
+@import url('main.pcss');
+@import url('light.pcss');
+@import url('dark.pcss');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply px-1;
+  font-family: monospace;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+
+input {
+  outline: none;
+}
+
+.light {
+}
+

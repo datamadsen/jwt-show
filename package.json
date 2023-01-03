@@ -1,39 +1,23 @@
 {
-  "name": "jwt.show",
-  "version": "1.0.0",
-  "main": "index.html",
-  "license": "MIT",
+  "private": true,
   "scripts": {
-    "build": "parcel build src/index.html --no-source-maps",
-    "watch": "parcel watch src/index.html",
-    "serve": "parcel serve src/index.html",
-    "deploy": "bash tools/deploy.sh"
-  },
-  "dependencies": {
-    "anchorify": "^1.0.2",
-    "clipboard": "^2.0.1",
-    "highlight": "^0.2.4",
-    "highlight.js": "^10.4.1",
-    "linkifyjs": "^2.1.6",
-    "markdown": "^0.5.0",
-    "marked": "^0.7.0",
-    "mithril": "^1.1.7",
-    "moment": "^2.22.2",
-    "suncalc": "^1.8.0"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-0",
-    "@babel/plugin-transform-runtime": "^7.13.10",
-    "parcel": "^1.9.7",
-    "sass": "^1.50.0",
-    "sass-loader": "^12.6.0",
-    "tachyons": "^4.10.0"
+    "@nuxtjs/color-mode": "^3.2.0",
+    "autoprefixer": "^10.4.13",
+    "nuxt": "^3.0.0",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
   },
-  "resolutions": {
-    "@babel/preset-env": "7.13.8"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "> 1%"
-  ]
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.6",
+    "jose": "^4.11.2",
+    "pinia": "^2.0.28",
+    "vue": "^3.2.45"
+  }
 }

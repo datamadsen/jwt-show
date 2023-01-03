@@ -1,0 +1,58 @@
+.button-group {
+  .title {
+    @apply mr-2;
+    vertical-align: center;
+  }
+
+  button {
+    @apply border-t border-l border-b px-1 shadow-2xl;
+
+    &:last-of-type {
+      @apply border-r rounded-r;
+    }
+
+    &:first-of-type {
+      @apply rounded-l;
+    }
+
+    &.success {
+      .checkmark {
+        display:inline-block;
+      }
+    }
+
+    .checkmark {
+      display: none;
+      width: 12px;
+      height:12px;
+      transform: rotate(45deg);
+
+      span {
+        margin-left: -8px;
+        margin-top: -1px;
+      }
+    }
+
+    .checkmark_stem {
+      position: absolute;
+      width:3px;
+      height:9px;
+      background-color:green;
+      left:11px;
+      top:6px;
+    }
+
+    .checkmark_kick {
+      position: absolute;
+      width:3px;
+      height:3px;
+      background-color:green;
+      left:8px;
+      top:12px;
+    }
+  }
+}
+
+.claim-value {
+  @apply whitespace-nowrap;
+}

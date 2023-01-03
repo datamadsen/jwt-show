@@ -1,0 +1,53 @@
+@import url('nord.css');
+.light {
+  background-color: white;
+  color: black;
+
+  input {
+  }
+
+  .number, .boolean {
+    color: #F76D47;
+  }
+
+  .boolean {
+    color: #FFB62C;
+  }
+
+  .comment {
+    color: #90A4AE;
+  }
+
+  .property {
+    color: #7C4DFF;
+  }
+
+  .string {
+    color: #91B859;
+  }
+
+  .comma, .brace, .bracket, .colon {
+    color: #8796B0;
+  }
+
+  .expirationCountdown {
+    color: var(--nord14);
+  }
+
+  .expirationCountdown.expired {
+    color: var(--nord12);
+  }
+
+  .button-group button {
+    &.active {
+      color: white;
+      background: var(--nord9);
+    }
+
+    &:hover {
+      color: white;
+      background: var(--nord8);
+    }
+  }
+}
+

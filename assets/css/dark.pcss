@@ -1,0 +1,51 @@
+@import url('nord.css');
+.dark {
+  background-color: var(--nord0);
+  color: var(--nord8);
+
+  input {
+    background-color: var(--nord0);
+    color: var(--nord8);
+    border-color: var(--nord3);
+  }
+
+  .number, .boolean {
+    color: var(--nord4);
+  }
+
+  .comment {
+    color: var(--nord3);
+  }
+
+  .property {
+    color: var(--nord7);
+  }
+
+  .string {
+    color: var(--nord15);
+  }
+
+  .comma, .brace, .bracket, .colon {
+    color: var(--nord13);
+  }
+
+  .expirationCountdown {
+    color: var(--nord14);
+  }
+
+  .expirationCountdown.expired {
+    color: var(--nord12);
+  }
+
+  .button-group button {
+    &.active {
+      color: white;
+      background: var(--nord9);
+    }
+
+    &:hover {
+      color: white;
+      background: var(--nord8);
+    }
+  }
+}

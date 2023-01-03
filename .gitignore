@@ -5,3 +5,6 @@ node_modules/
 dist
 .parcel-cache/
 *.swp
+.nuxt
+.idea
+.output
