@@ -11,9 +11,6 @@ export default {
     isJwt: function() {
       return isJwt(this.jwt.encoded);
     }
-  },
-  onMount() {
-
   }
 }
 </script>

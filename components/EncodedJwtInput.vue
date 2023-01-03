@@ -22,7 +22,6 @@ function blurInput(event) {
 function change(event) {
   router.push({ path: `/decode/${event.target.value}` })
 }
-
 </script>
 
 <template>

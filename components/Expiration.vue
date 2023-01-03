@@ -1,9 +1,3 @@
-<template>
-  <div v-if="expires">
-    <pre :key="componentKey" class="expirationCountdown" :class="{ expired: isExpired }">{{ expirationString }}</pre>
-  </div>
-</template>
-
 <script setup>
 import { ref } from 'vue';
 import {useJwtStore} from "~/stores/jwtStore";
@@ -35,4 +29,10 @@ onUnmounted(() => {
   clearInterval(intervalId);
 })
 </script>
+
+<template>
+  <div v-if="expires">
+    <pre :key="componentKey" class="expirationCountdown" :class="{ expired: isExpired }">{{ expirationString }}</pre>
+  </div>
+</template>
 

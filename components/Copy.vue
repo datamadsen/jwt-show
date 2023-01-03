@@ -2,7 +2,7 @@
 import {Clipboard} from "~/utils/clipboard";
 import {useJwtStore} from "~/stores/jwtStore";
 
-var jwt = useJwtStore();
+const jwt = useJwtStore();
 
 function copyStuff(stuff) {
   Clipboard.setClipboard(stuff);
@@ -11,8 +11,8 @@ function copyStuff(stuff) {
 function copyLink() {
   Clipboard.setClipboard(window.location)
 }
-
 </script>
+
 <template>
   <div>
     <span class="button-group">

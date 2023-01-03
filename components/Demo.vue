@@ -1,11 +1,3 @@
-<template>
-  <div>
-    <span class="button-group">
-      <button @click="setDemoToken()">demo token</button>
-    </span>
-  </div>
-</template>
-
 <script setup>
 import {JwtIssuer} from "~/utils/jwt-issuer";
 
@@ -16,3 +8,11 @@ async function setDemoToken() {
   router.push({path: `/decode/${demoToken}`})
 }
 </script>
+
+<template>
+  <div>
+    <span class="button-group">
+      <button @click="setDemoToken()">demo token</button>
+    </span>
+  </div>
+</template>

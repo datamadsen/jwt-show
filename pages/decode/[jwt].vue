@@ -7,6 +7,7 @@ const route = useRoute();
 
 jwt.set(route.params.jwt);
 </script>
+
 <template>
   <div>
     <EncodedJwtInput :autofocus=false />

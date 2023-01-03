@@ -14,6 +14,7 @@ export default {
   }
 }
 </script>
+
 <template>
   <button @click="btnClick($event.target)">
     <slot/>

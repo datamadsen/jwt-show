@@ -4,6 +4,7 @@ import {useJwtStore} from "~/stores/jwtStore";
 const jwt = useJwtStore();
 jwt.set(null);
 </script>
+
 <template>
   <div>
     <EncodedJwtInput :autofocus=true />
