@@ -1,7 +1,9 @@
 <template>
-  <span class="button-group ml-4">
-    <button @click="setDemoToken()">demo token</button>
-  </span>
+  <div>
+    <span class="button-group">
+      <button @click="setDemoToken()">demo token</button>
+    </span>
+  </div>
 </template>
 
 <script setup>

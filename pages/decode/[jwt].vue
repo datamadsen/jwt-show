@@ -10,10 +10,10 @@ jwt.set(route.params.jwt);
 <template>
   <div>
     <EncodedJwtInput :autofocus=false />
-    <div class="my-2">
-      <ColorMode class="inline-block mr-4" />
-      <Copy class="inline-block mr-4" />
-      <Expiration class="inline-block" />
+    <div>
+      <ColorMode class="inline-block mr-4 mt-2 md:mt-0" />
+      <Copy class="inline-block mr-4 mt-2 md:mt-0"  />
+      <Expiration class="inline-block mt-2 md:mt-0" />
     </div>
     <DecodedJwt />
   </div>
