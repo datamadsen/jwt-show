@@ -6,7 +6,7 @@ export default {
   components: {ObjectClaim, ArrayClaim},
   props: {
     name: String,
-    value: [Boolean, Number, String, Array, Object],
+    value: [String, Boolean, Number, Array, Object],
     indent: Number,
     last: Boolean
   },

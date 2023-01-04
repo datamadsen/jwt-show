@@ -26,6 +26,7 @@ export const JwtIssuer = {
       "sub": "a-user-id",
       "admin": false,
       "nil": null,
+      "empty_string": "",
       "last_login": now - 42 * 60,
       "some_number": 42,
       "some_array": [
