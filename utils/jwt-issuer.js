@@ -25,6 +25,7 @@ export const JwtIssuer = {
       "exp": now + 60,
       "sub": "a-user-id",
       "admin": false,
+      "nil": null,
       "last_login": now - 42 * 60,
       "some_number": 42,
       "some_array": [

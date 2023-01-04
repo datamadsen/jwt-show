@@ -61,8 +61,9 @@ export default {
       <span v-else-if="typeof value === 'string'" class="string">&quot;{{ value }}&quot;</span>
       <span v-else-if="typeof value === 'number'" class="number">{{ value }}</span>
       <span v-else-if="typeof value === 'boolean'" class="boolean">{{ value }}</span>
+      <span v-else-if="value === null" class="boolean">null</span>
       <ArrayClaim v-else-if="Array.isArray(value)" :name="name" :value="value" :indent="indent"/>
-      <ObjectClaim v-else-if="typeof value === 'object'" :name="name" :value="value" :indent="indent"/>
+      <ObjectClaim v-else-if="typeof value === 'object' && value !== null" :name="name" :value="value" :indent="indent"/>
       <span v-else>{{ name }}: {{ value }}</span>
 
       <span v-if="!last" class="comma">,</span>
