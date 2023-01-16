@@ -1,22 +1,19 @@
-<script>
-export default {
-  props: {
-    stuff: String
-  },
-  methods: {
-    btnClick(element) {
-      this.$emit("click");
-      element.classList.add('success');
-      window.setTimeout(function () {
-        element.classList.remove('success');
-      }, 2000);
-    }
-  }
+<script setup>
+defineProps({
+  stuff: String
+})
+
+const successMark = ref(false);
+
+function btnClick() {
+  successMark.value = true;
+  setTimeout(() => successMark.value = false, 2000);
 }
+
 </script>
 
 <template>
-  <button @click="btnClick($event.target)">
+  <button :class="{success: successMark}" @click="btnClick()">
     <slot/>
     <span class="checkmark">
       <span class="checkmark_stem"></span>
