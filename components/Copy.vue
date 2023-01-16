@@ -4,12 +4,12 @@ import {useJwtStore} from "~/stores/jwtStore";
 
 const jwt = useJwtStore();
 
-function copyStuff(stuff) {
-  Clipboard.setClipboard(stuff);
+async function copyStuff(stuff) {
+  await Clipboard.setClipboard(stuff);
 }
 
-function copyLink() {
-  Clipboard.setClipboard(window.location)
+async function copyLink() {
+  await Clipboard.setClipboard(window.location);
 }
 </script>
 
