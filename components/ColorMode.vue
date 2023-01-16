@@ -5,7 +5,7 @@
       <button v-for="color of ['dark', 'light', 'system']"
               @click="$colorMode.preference = color"
               :key="color"
-              :class="{ active: color === $colorMode.preference }">{{ color }}</button>
+              :class="{ selected: color === $colorMode.preference }">{{ color }}</button>
     </span>
   </div>
 </template>
