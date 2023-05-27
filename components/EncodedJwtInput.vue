@@ -21,7 +21,7 @@ function blurInput(event) {
 
 /* When there's a change, navigate to a url that will show the jwt. */
 function change(event) {
-  router.push({ path: `/decode/${event.target.value}` })
+  router.push({ name: `decode-jwt`, params: { jwt: event.target.value } });
 }
 
 onMounted(() => {
