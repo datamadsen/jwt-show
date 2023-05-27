@@ -5,7 +5,7 @@ const router = useRouter();
 
 async function setDemoToken() {
   const demoToken = await JwtIssuer.issueDemoToken();
-  router.push({path: `/decode/${demoToken}`})
+  router.push({ name: "decode-jwt", params: { jwt: demoToken } });
 }
 </script>
 

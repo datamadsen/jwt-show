@@ -1,3 +1,3 @@
 export const isJwt = (checkThis) => {
-  return JwtDecoder.decode(checkThis) !== "invalid jwt";
+  return !!checkThis && JwtDecoder.decode(checkThis) !== "invalid jwt";
 }

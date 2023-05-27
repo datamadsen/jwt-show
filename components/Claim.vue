@@ -30,7 +30,7 @@ export default {
       return new Date(this.value * 1000).toString().replace(/ *\([^)]*\) */g, "");
     },
     jwtLink() {
-      return "/decode/" + this.value;
+      return { name: "decode-jwt", params: { jwt: this.value } };
     }
   }
 }
